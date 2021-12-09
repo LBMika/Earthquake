@@ -14,6 +14,9 @@ import org.springframework.web.bind.annotation.*;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Country Rest controller
+ */
 @RestController
 @RequestMapping("/countries")
 public class CountryController {
@@ -25,11 +28,20 @@ public class CountryController {
         this.mapper = mapper;
     }
 
+    /**
+     * Find all countries in the DB
+     * @return A list of countries with their info (id, name, code)
+     */
     @GetMapping
     public List<CountryDTO> findAll() {
         return service.findAll();
     }
 
+    /**
+     * Find a country by its DB Id
+     * @param id DB Id
+     * @return A country with its info (id, name, code)
+     */
     @GetMapping("{id}")
     public ResponseEntity<CountryDTO> getById(@PathVariable String id) {
         CountryDTO countryDTO = service.findById(id);
@@ -41,16 +53,31 @@ public class CountryController {
         return result;
     }
 
+    /**
+     * Save a new country in the DB
+     * @param countryDTO Info of the country to save (name, code)
+     * @return The saved country with its info (id, name, code)
+     */
     @PostMapping
     public ResponseEntity<CountryDTO> save(@RequestBody CountrySaveDTO countryDTO) {
         return ResponseEntity.status(HttpStatus.CREATED).body(this.service.save(countryDTO));
     }
 
+    /**
+     * Update an existing country in DB. The country's Id must be given.
+     * @param country Country's info with its Id and the info to update
+     * @return The country info after the update (id, name, code)
+     */
     @PutMapping
     public ResponseEntity<CountryDTO> updateById(@RequestBody CountryUpdateDTO country) {
         return ResponseEntity.ok(this.service.update(country));
     }
 
+    /**
+     * Delete a country in the DB by its Id.
+     * @param country DTO with only the country's Id
+     * @return Always true
+     */
     @DeleteMapping
     public ResponseEntity<Boolean> deleteById(@RequestBody CountryDeleteDTO country) {
         this.service.deleteDyId(country);

@@ -15,17 +15,17 @@ public class Earthquake {
     private String id;
     private String name;
     private float magnitude;
-    private String localisation;
+    private String location;
     private Date date;
 
     public Earthquake() {
     }
 
-    public Earthquake(String id, String name, float magnitude, String localisation, Date date) {
+    public Earthquake(String id, String name, float magnitude, String location, Date date) {
         this.id = id;
         this.name = name;
         this.magnitude = magnitude;
-        this.localisation = localisation;
+        this.location = location;
         this.date = date;
     }
 
@@ -53,12 +53,12 @@ public class Earthquake {
         this.magnitude = magnitude;
     }
 
-    public String getLocalisation() {
-        return localisation;
+    public String getLocation() {
+        return location;
     }
 
-    public void setLocalisation(String localisation) {
-        this.localisation = localisation;
+    public void setLocation(String location) {
+        this.location = location;
     }
 
     public Date getDate() {

@@ -1,15 +1,15 @@
 package fr.mika.worldvulcan.configuration;
 
-import fr.mika.worldvulcan.repository.VulcanRepository;
-import fr.mika.worldvulcan.service.VulcanService;
+import fr.mika.worldvulcan.repository.EarthquakeRepository;
+import fr.mika.worldvulcan.service.EarthquakeService;
 import org.modelmapper.ModelMapper;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 @Configuration
-public class VulcanConfiguration {
+public class EarthquakeConfiguration {
     @Bean
-    public VulcanService vulcanService(VulcanRepository repository, ModelMapper mapper) {
-        return new VulcanService(repository, mapper);
+    public EarthquakeService vulcanService(EarthquakeRepository repository, ModelMapper mapper) {
+        return new EarthquakeService(repository, mapper);
     }
 }

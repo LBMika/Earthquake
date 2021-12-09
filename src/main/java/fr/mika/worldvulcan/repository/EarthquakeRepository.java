@@ -1,8 +1,7 @@
 package fr.mika.worldvulcan.repository;
 
-import fr.mika.worldvulcan.entity.Country;
-import fr.mika.worldvulcan.entity.Vulcan;
+import fr.mika.worldvulcan.entity.Earthquake;
 import org.springframework.data.mongodb.repository.MongoRepository;
 
-public interface VulcanRepository extends MongoRepository<Vulcan, String> {
+public interface EarthquakeRepository extends MongoRepository<Earthquake, String> {
 }
